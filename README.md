@@ -1,4 +1,4 @@
-# Express TS Better Auth
+# Express TS Better Auth and RBAC
 
 A robust and modular Express.js application built with TypeScript, Prisma, and Better Auth, designed for secure user authentication and role-based access control. This project showcases a scalable architecture for building RESTful APIs with best practices.
 
@@ -134,16 +134,3 @@ Tests are located in the `tests` directory. Run them with:
 ```bash
 npm test
 ```
-
-## Acknowledgments
-
-Special thanks to the creators and maintainers of:
-
-- Express.js
-- Prisma
-- Better Auth
-- TypeScript
-- Zod
-- Pino
-- Nodemailer
-- And the open-source community!
