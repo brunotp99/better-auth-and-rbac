@@ -19,7 +19,7 @@ export const auth = betterAuth({
     sendOnSignUp: true, //Send a verification email
     autoSignInAfterVerification: true, //When the user clicks on the email link it should be auto logged in
     sendVerificationEmail: async ({ user, token }) => {
-      const verificationUrl = `${process.env.BETTER_AUTH_URL}/api/auth/verify-email?token=${token}&callbackURL=${process.env.EMAIL_VERIFICATION_CALLBACK_URL}`;
+      const verificationUrl = `${process.env.BACKEND_URL}/api/auth/verify-email?token=${token}&callbackURL=${process.env.EMAIL_VERIFICATION_CALLBACK_URL}`;
       console.log(verificationUrl)
 
       const mailService = MailService.getInstance()

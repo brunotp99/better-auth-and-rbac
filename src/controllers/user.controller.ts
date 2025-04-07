@@ -51,7 +51,10 @@ export class UserController {
                 data: user,
             })
         } catch (error) {
-            console.log(error)
+            res.status(401).json({
+                error: true,
+                message: 'Email or password is incorrect.',
+            })
         }
          
     }
