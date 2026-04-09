@@ -1,6 +1,61 @@
-node_modules
-# Keep environment variables out of version control
-.env
+# Dependencies
 
-# Ignore Prisma Generated Code
-/prisma/src
+node_modules/
+
+# Build output
+
+dist/
+build/
+*.tsbuildinfo
+
+# Environment variables
+
+.env
+.env.*
+!.env.example
+
+# Logs
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+pnpm-debug.log*
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+
+.idea/
+*.swp
+*.swo
+
+# Prisma
+
+prisma/migrations/
+
+# (keep migrations if you want them versioned → remove this line if needed)
+
+# Prisma generated client (if you use custom output like yours)
+
+src/generated/
+
+# Coverage / testing
+
+coverage/
+
+# Temporary files
+
+tmp/
+temp/
+
+# Biome cache (if created)
+
+.biome/
+
+# Misc
+
+*.local

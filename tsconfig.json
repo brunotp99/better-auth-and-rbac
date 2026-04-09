@@ -5,11 +5,12 @@
     "lib": ["ES2023"],
 
     /* Module Resolution */
-    "module": "es2022",
+    "module": "es2022",                                /* Specify what module code is generated. */
+    "outDir": "./dist",
+    "rootDir": "./src",
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"],
-      "@/generated/*": ["./prisma/src/generated/*"]
     },
 
     /* Interop Constraints */
@@ -22,4 +23,7 @@
     /* Completeness */
     "skipLibCheck": true
   }
+  ,
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist", "prisma", "prisma.config.ts"]
 }
