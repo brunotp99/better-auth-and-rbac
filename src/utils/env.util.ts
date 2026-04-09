@@ -13,6 +13,7 @@ const envSchema = z.object({
     SMTP_TLS: z.string().transform((value) => value === 'true'),
     SMTP_USERNAME: z.string().email(),
     SMTP_PASSWORD: z.string(),
+    DATABASE_URL: z.string(),
 })
 
 const _env = envSchema.safeParse(process.env)
