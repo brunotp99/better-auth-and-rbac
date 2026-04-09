@@ -10,6 +10,8 @@ jobs:
   build:
     name: Build, Typecheck & Lint
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgresql://postgres:postgres@127.0.0.1:5432/better_auth_db
     steps:
       - name: Checkout
         uses: actions/checkout@v4
