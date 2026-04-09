@@ -1,5 +1,5 @@
-import { User } from '@prisma/client'
+import type { User } from '@prisma/client'
 
 export interface UserRepository {
-    findById(userId: string): Promise<User | null>
+  findById(userId: string): Promise<User | null>
 }
