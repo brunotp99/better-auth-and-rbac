@@ -1,61 +1,58 @@
-import { Request, Response } from 'express'
-
-import { UserService } from '@/services/user.service'
-import { GetOneUserInput } from '@/schemas/user.schema'
+import type { Request, Response } from 'express'
+import type { GetOneUserInput } from '@/schemas/user.schema'
+import type { UserService } from '@/services/user.service'
 import { auth } from '@/utils/auth.util'
 
 export class UserController {
-    private userService: UserService
+  private userService: UserService
 
-    constructor(userService: UserService) {
-        this.userService = userService
-        this.getOne = this.getOne.bind(this)
-        this.customSignIn = this.customSignIn.bind(this)
+  constructor(userService: UserService) {
+    this.userService = userService
+    this.getOne = this.getOne.bind(this)
+    this.customSignIn = this.customSignIn.bind(this)
+  }
+
+  async getOne(req: Request<GetOneUserInput>, res: Response) {
+    const { userId } = req.params
+
+    const sessionUser = res.locals.user
+
+    if (userId !== sessionUser.id) {
+      res.status(403).json({
+        error: true,
+        message: 'You do not have access to the following user.',
+      })
     }
 
-    async getOne(req: Request<GetOneUserInput>, res: Response) {
-        const { userId } = req.params
+    const user = await this.userService.getOne(userId)
 
-        const sessionUser = res.locals.user;
+    res.status(200).json({
+      error: false,
+      message: 'The requested user was found.',
+      data: user,
+    })
+  }
 
-        if (userId !== sessionUser.id) {
-            res.status(403).json({
-                error: true,
-                message: 'You do not have access to the following user.',
-            })
-        }
+  async customSignIn(req: Request<any>, res: Response) {
+    try {
+      const user = await auth.api.signInEmail({
+        body: {
+          email: req.body.email,
+          password: req.body.password,
+        },
+        headers: req.headers,
+      })
 
-        const user = await this.userService.getOne(userId)
-
-        res.status(200).json({
-            error: false,
-            message: 'The requested user was found.',
-            data: user,
-        })
+      res.status(200).json({
+        error: false,
+        message: 'Success login.',
+        data: user,
+      })
+    } catch (_error) {
+      res.status(401).json({
+        error: true,
+        message: 'Email or password is incorrect.',
+      })
     }
-
-    async customSignIn(req: Request<any>, res: Response) {
-
-        try {
-            const user = await auth.api.signInEmail({
-                body: {
-                    email: req.body.email,
-                    password: req.body.password
-                },
-                headers: req.headers
-            })
-
-            res.status(200).json({
-                error: false,
-                message: 'Success login.',
-                data: user,
-            })
-        } catch (error) {
-            res.status(401).json({
-                error: true,
-                message: 'Email or password is incorrect.',
-            })
-        }
-         
-    }
+  }
 }

@@ -1,0 +1,15 @@
+{
+  "extends": ["config:base"],
+  "stabilityDays": 2,
+  "dependencyDashboard": true,
+  "prHourlyLimit": 2,
+  "packageRules": [
+    {
+      "description": "Automerge non-major updates (minor & patch)",
+      "updateTypes": ["minor", "patch"],
+      "automerge": true,
+      "automergeType": "pr",
+      "labels": ["automerge"]
+    }
+  ]
+}
