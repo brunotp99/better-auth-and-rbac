@@ -11,7 +11,7 @@
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./src/*"],
-      "@prisma/client": ["./src/generated/prisma/client"]
+      "@prisma/client": ["./src/generated/prisma/client/client"]
     },
     /* Interop Constraints */
     "esModuleInterop": true,
