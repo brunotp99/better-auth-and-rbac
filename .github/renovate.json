@@ -1,12 +1,12 @@
 {
-  "extends": ["config:base"],
-  "stabilityDays": 2,
+  "extends": ["config:recommended"],
+  "minimumReleaseAge": "2 days",
   "dependencyDashboard": true,
   "prHourlyLimit": 2,
   "packageRules": [
     {
       "description": "Automerge non-major updates (minor & patch)",
-      "updateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch"],
       "automerge": true,
       "automergeType": "pr",
       "labels": ["automerge"]
