@@ -10,12 +10,8 @@ updates:
         update-types:
           - "minor"
           - "patch"
-    labels:
-      - "automerge"
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-    labels:
-      - "automerge"
