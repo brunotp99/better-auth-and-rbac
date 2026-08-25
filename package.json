@@ -25,9 +25,9 @@
   "dependencies": {
     "@prisma/adapter-pg": "^7.9.1",
     "@prisma/client": "^7.9.1",
-    "better-auth": "^1.6.29",
+    "better-auth": "^1.7.1",
     "cors": "^2.8.6",
-    "dayjs": "^1.11.21",
+    "dayjs": "^1.11.23",
     "dotenv": "^17.4.2",
     "express": "^5.2.1",
     "nodemailer": "^6.10.0",
@@ -35,7 +35,7 @@
     "pino-http": "^10.5.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.5.8",
+    "@biomejs/biome": "^2.5.10",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
     "@types/node": "^25.9.3",
