@@ -28,7 +28,7 @@
     "better-auth": "^1.7.6",
     "cors": "^2.8.6",
     "dayjs": "^1.11.23",
-    "dotenv": "^17.4.2",
+    "dotenv": "^18.0.4",
     "express": "^5.2.1",
     "nodemailer": "^6.10.0",
     "pino": "^10.3.1",
